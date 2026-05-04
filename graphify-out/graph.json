@@ -43,7 +43,7 @@
       "label": "AnchorButton()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L10",
+      "source_location": "L12",
       "id": "app_anchorbutton",
       "community": 0,
       "norm_label": "anchorbutton()"
@@ -81,7 +81,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L10",
+      "source_location": "L12",
       "weight": 1.0,
       "_src": "src_app_tsx",
       "_tgt": "app_anchorbutton",
