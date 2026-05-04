@@ -1,0 +1,94 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "vite.config.ts",
+      "file_type": "code",
+      "source_file": "vite.config.ts",
+      "source_location": "L1",
+      "id": "vite_config_ts",
+      "community": 1,
+      "norm_label": "vite.config.ts"
+    },
+    {
+      "label": "vite-env.d.ts",
+      "file_type": "code",
+      "source_file": "src/vite-env.d.ts",
+      "source_location": "L1",
+      "id": "src_vite_env_d_ts",
+      "community": 2,
+      "norm_label": "vite-env.d.ts"
+    },
+    {
+      "label": "content.ts",
+      "file_type": "code",
+      "source_file": "src/content.ts",
+      "source_location": "L1",
+      "id": "src_content_ts",
+      "community": 3,
+      "norm_label": "content.ts"
+    },
+    {
+      "label": "App.tsx",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L1",
+      "id": "src_app_tsx",
+      "community": 0,
+      "norm_label": "app.tsx"
+    },
+    {
+      "label": "AnchorButton()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L10",
+      "id": "app_anchorbutton",
+      "community": 0,
+      "norm_label": "anchorbutton()"
+    },
+    {
+      "label": "App.test.tsx",
+      "file_type": "code",
+      "source_file": "src/App.test.tsx",
+      "source_location": "L1",
+      "id": "src_app_test_tsx",
+      "community": 4,
+      "norm_label": "app.test.tsx"
+    },
+    {
+      "label": "main.tsx",
+      "file_type": "code",
+      "source_file": "src/main.tsx",
+      "source_location": "L1",
+      "id": "src_main_tsx",
+      "community": 5,
+      "norm_label": "main.tsx"
+    },
+    {
+      "label": "setup.ts",
+      "file_type": "code",
+      "source_file": "src/test/setup.ts",
+      "source_location": "L1",
+      "id": "src_test_setup_ts",
+      "community": 6,
+      "norm_label": "setup.ts"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "src_app_tsx",
+      "_tgt": "app_anchorbutton",
+      "source": "src_app_tsx",
+      "target": "app_anchorbutton",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}

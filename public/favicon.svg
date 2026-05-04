@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Black Tower Consulting">
+  <rect width="64" height="64" fill="#080a0d" />
+  <path d="M19 54V22l13-12 13 12v32h-8V37H27v17h-8Z" fill="#f4f4f4" />
+  <path d="M24 25h16M24 31h16M27 37h10" stroke="#76b900" stroke-width="3" />
+</svg>
