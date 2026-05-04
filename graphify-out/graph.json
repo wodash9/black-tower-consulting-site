@@ -45,7 +45,7 @@
       "source_file": "src/App.tsx",
       "source_location": "L1",
       "id": "src_app_tsx",
-      "community": 1,
+      "community": 0,
       "norm_label": "app.tsx"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "src/App.tsx",
       "source_location": "L15",
       "id": "app_anchorbutton",
-      "community": 1,
+      "community": 0,
       "norm_label": "anchorbutton()"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "src/App.tsx",
       "source_location": "L28",
       "id": "app_agenticon",
-      "community": 1,
+      "community": 0,
       "norm_label": "agenticon()"
     },
     {
@@ -90,25 +90,25 @@
       "source_file": "src/ProblemResearchPage.tsx",
       "source_location": "L1",
       "id": "src_problemresearchpage_tsx",
-      "community": 0,
+      "community": 1,
       "norm_label": "problemresearchpage.tsx"
     },
     {
       "label": "SectionLabel()",
       "file_type": "code",
       "source_file": "src/ProblemResearchPage.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "id": "problemresearchpage_sectionlabel",
-      "community": 0,
+      "community": 1,
       "norm_label": "sectionlabel()"
     },
     {
       "label": "AnchorButton()",
       "file_type": "code",
       "source_file": "src/ProblemResearchPage.tsx",
-      "source_location": "L17",
+      "source_location": "L18",
       "id": "problemresearchpage_anchorbutton",
-      "community": 0,
+      "community": 1,
       "norm_label": "anchorbutton()"
     },
     {
@@ -150,7 +150,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/ProblemResearchPage.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_src": "src_problemresearchpage_tsx",
       "_tgt": "problemresearchpage_sectionlabel",
@@ -162,7 +162,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/ProblemResearchPage.tsx",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0,
       "_src": "src_problemresearchpage_tsx",
       "_tgt": "problemresearchpage_anchorbutton",

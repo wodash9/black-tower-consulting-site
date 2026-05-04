@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 
 import {
   automationPatterns,
+  detailedProblemGroups,
   opportunityGroups,
   priorityPlays,
   researchMeta,
@@ -37,6 +38,7 @@ export function ProblemResearchPage() {
         <nav>
           <a href="/#servicios">Servicios</a>
           <a href="#oportunidades">Oportunidades</a>
+          <a href="#microproblemas">Microproblemas</a>
           <a href="#prioridad">Prioridad</a>
           <a href="#fuentes">Fuentes</a>
         </nav>
@@ -78,9 +80,9 @@ export function ProblemResearchPage() {
       <section id="oportunidades" className="opportunity-section" aria-labelledby="opportunities-title">
         <div className="section-heading">
           <SectionLabel>Mapa de dolores</SectionLabel>
-          <h2 id="opportunities-title">18 problemáticas específicas con una primera entrega posible.</h2>
+          <h2 id="opportunities-title">18 líneas de oportunidad y 36 microproblemas listos para entrevista.</h2>
           <p>
-            Cada caso está formulado para vender una auditoría corta: dolor visible, señal comercial, automatización mínima y una primera prueba que no exige rehacer toda la empresa.
+            Primero aparecen las familias de oportunidad. Después, la biblioteca baja a problemas más concretos: pieza, documento, equipo, zona, expediente o visita donde se puede prototipar en una semana.
           </p>
         </div>
         <div className="opportunity-groups">
@@ -118,6 +120,58 @@ export function ProblemResearchPage() {
                           <dd>{item.firstDeliverable}</dd>
                         </div>
                       </dl>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            );
+          })}
+        </div>
+      </section>
+
+      <section id="microproblemas" className="detail-section" aria-labelledby="detail-title">
+        <div className="section-heading">
+          <SectionLabel>Biblioteca concreta</SectionLabel>
+          <h2 id="detail-title">36 problemas de “esto pasa todos los días” para abrir conversaciones reales.</h2>
+          <p>
+            Estos ejemplos son más estrechos a propósito. Cada tarjeta apunta a un fallo operativo observable, quién lo sufre, qué datos capturar y qué prototipo razonable se puede enseñar en 7 días.
+          </p>
+        </div>
+        <div className="detail-groups">
+          {detailedProblemGroups.map((group, groupIndex) => {
+            const detailGroupId = `detail-group-${groupIndex + 1}`;
+
+            return (
+              <section className="detail-group" key={group.group} aria-labelledby={detailGroupId}>
+                <div className="detail-group__intro">
+                  <span>{String(groupIndex + 1).padStart(2, '0')}</span>
+                  <h3 id={detailGroupId}>{group.group}</h3>
+                  <p>{group.description}</p>
+                </div>
+                <div className="detail-grid">
+                  {group.problems.map((problem, problemIndex) => (
+                    <article className="detail-card" key={problem.microNiche}>
+                      <div className="detail-card__index">{String(problemIndex + 1).padStart(2, '0')}</div>
+                      <h4>{problem.microNiche}</h4>
+                      <dl>
+                        <div>
+                          <dt>Problema exacto</dt>
+                          <dd>{problem.specificProblem}</dd>
+                        </div>
+                        <div>
+                          <dt>Disparador / comprador</dt>
+                          <dd>{problem.buyerTrigger}</dd>
+                        </div>
+                        <div>
+                          <dt>Datos a capturar</dt>
+                          <dd>{problem.capturedData}</dd>
+                        </div>
+                        <div>
+                          <dt>Prototipo 7 días</dt>
+                          <dd>{problem.sevenDayPrototype}</dd>
+                        </div>
+                      </dl>
+                      <p className="detail-card__wedge">{problem.concreteWedge}</p>
                     </article>
                   ))}
                 </div>

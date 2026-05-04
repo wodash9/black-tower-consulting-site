@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { App } from './App';
 import { agents, capabilityPillars, explicitLimits, operatingFlow, showcasedCapabilities } from './content';
-import { opportunityGroups, priorityPlays, sourceLinks } from './researchContent';
+import { detailedProblemGroups, opportunityGroups, priorityPlays, sourceLinks } from './researchContent';
 
 describe('Black Tower Consulting sellable multiagent showroom', () => {
   afterEach(() => {
@@ -60,10 +60,16 @@ describe('Black Tower Consulting sellable multiagent showroom', () => {
     render(<App />);
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('problemáticas empresariales atacables');
-    expect(screen.getByText('18 problemáticas específicas con una primera entrega posible.')).toBeInTheDocument();
+    expect(screen.getByText('18 líneas de oportunidad y 36 microproblemas listos para entrevista.')).toBeInTheDocument();
+    expect(screen.getByText('36 problemas de “esto pasa todos los días” para abrir conversaciones reales.')).toBeInTheDocument();
     for (const group of opportunityGroups) {
       expect(screen.getByRole('heading', { name: group.group })).toBeInTheDocument();
     }
+    for (const group of detailedProblemGroups) {
+      expect(screen.getByRole('heading', { name: group.group })).toBeInTheDocument();
+    }
+    expect(screen.getByRole('heading', { name: detailedProblemGroups[0].problems[0].microNiche })).toBeInTheDocument();
+    expect(screen.getByText(detailedProblemGroups[1].problems[5].specificProblem)).toBeInTheDocument();
     for (const play of priorityPlays) {
       expect(screen.getByRole('heading', { name: play.title })).toBeInTheDocument();
     }

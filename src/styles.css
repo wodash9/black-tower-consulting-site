@@ -596,6 +596,79 @@ h3 {
 .opportunity-card dl { margin: 18px 0 0; display: grid; gap: 16px; }
 .opportunity-card dt { color: #6f6f6f; }
 .opportunity-card dd { margin: 6px 0 0; color: #30363d; line-height: 1.45; }
+.detail-section {
+  padding: clamp(64px, 8vw, 118px) clamp(18px, 4vw, 56px);
+  background: #f4f4f4;
+  color: var(--dark-text);
+  border-top: 1px solid #d0d7de;
+}
+.detail-groups { display: grid; gap: 52px; }
+.detail-group {
+  display: grid;
+  grid-template-columns: minmax(250px, .26fr) minmax(0, 1fr);
+  gap: 24px;
+  padding-top: 26px;
+  border-top: 1px solid #c6c6c6;
+}
+.detail-group__intro {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+}
+.detail-group__intro span,
+.detail-card dt,
+.detail-card__index {
+  color: var(--blue);
+  font: 700 11px/1.35 var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.detail-group__intro h3 {
+  margin: 22px 0 14px;
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.04;
+  letter-spacing: -.045em;
+}
+.detail-group__intro p { color: #525252; line-height: 1.55; }
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: #c6c6c6;
+  border: 1px solid #c6c6c6;
+}
+.detail-card {
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  padding: 17px;
+  background: #ffffff;
+}
+.detail-card__index {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: var(--blue);
+}
+.detail-card h4 {
+  min-height: 92px;
+  margin: 28px 0 18px;
+  font-size: 21px;
+  line-height: 1.16;
+  letter-spacing: -.035em;
+}
+.detail-card dl { margin: 0; display: grid; gap: 13px; }
+.detail-card dd { margin: 5px 0 0; color: #30363d; font-size: 14px; line-height: 1.43; }
+.detail-card__wedge {
+  margin: auto 0 0;
+  padding-top: 14px;
+  color: #161616;
+  border-top: 1px solid #d0d7de;
+  font: 600 14px/1.42 var(--font-mono);
+}
+
 .priority-section {
   padding: clamp(64px, 8vw, 118px) clamp(18px, 4vw, 56px);
   background-color: #080a0d;
@@ -648,9 +721,10 @@ h3 {
 .sources-grid small { color: #525252; text-transform: none; letter-spacing: 0; overflow-wrap: anywhere; }
 
 @media (max-width: 1180px) {
-  .hero, .manifest-section, .research-hero, .research-patterns, .opportunity-group { grid-template-columns: 1fr; }
+  .hero, .manifest-section, .research-hero, .research-patterns, .opportunity-group, .detail-group { grid-template-columns: 1fr; }
+  .detail-group__intro { position: static; }
   .tower-console { max-width: 720px; }
-  .agent-grid, .pillar-grid, .opportunity-grid, .priority-grid, .sources-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .agent-grid, .pillar-grid, .opportunity-grid, .priority-grid, .sources-grid, .detail-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .showcase-grid, .flow-timeline, .limits-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 720px) {
@@ -670,8 +744,9 @@ h3 {
   .agent-icon { width: 41px; height: 41px; stroke-width: 3.3; }
   .agent-logo__code { min-width: 32px; height: 23px; font-size: 12px; }
   .agent-card__top p, .agent-output span { font-size: 12px; letter-spacing: .06em; }
-  .console-grid, .agent-grid, .pillar-grid, .showcase-grid, .flow-timeline, .limits-grid, .research-brief, .opportunity-grid, .priority-grid, .sources-grid { grid-template-columns: 1fr; }
-  .agent-card, .pillar-card, .showcase-card, .flow-item, .limit-card, .opportunity-card, .priority-card, .research-brief article, .sources-grid a { min-height: auto; }
+  .console-grid, .agent-grid, .pillar-grid, .showcase-grid, .flow-timeline, .limits-grid, .research-brief, .opportunity-grid, .priority-grid, .sources-grid, .detail-grid { grid-template-columns: 1fr; }
+  .agent-card, .pillar-card, .showcase-card, .flow-item, .limit-card, .opportunity-card, .priority-card, .research-brief article, .sources-grid a, .detail-card { min-height: auto; }
+  .detail-card h4 { min-height: auto; }
   .pillar-card h3 { margin-top: 36px; }
   .showcase-card p { margin-top: 44px; }
   .flow-item h3 { margin-top: 56px; }
