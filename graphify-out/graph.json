@@ -9,7 +9,7 @@
       "source_file": "vite.config.ts",
       "source_location": "L1",
       "id": "vite_config_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "vite.config.ts"
     },
     {
@@ -18,8 +18,17 @@
       "source_file": "src/vite-env.d.ts",
       "source_location": "L1",
       "id": "src_vite_env_d_ts",
-      "community": 2,
+      "community": 3,
       "norm_label": "vite-env.d.ts"
+    },
+    {
+      "label": "researchContent.ts",
+      "file_type": "code",
+      "source_file": "src/researchContent.ts",
+      "source_location": "L1",
+      "id": "src_researchcontent_ts",
+      "community": 4,
+      "norm_label": "researchcontent.ts"
     },
     {
       "label": "content.ts",
@@ -27,7 +36,7 @@
       "source_file": "src/content.ts",
       "source_location": "L1",
       "id": "src_content_ts",
-      "community": 3,
+      "community": 5,
       "norm_label": "content.ts"
     },
     {
@@ -36,25 +45,25 @@
       "source_file": "src/App.tsx",
       "source_location": "L1",
       "id": "src_app_tsx",
-      "community": 0,
+      "community": 1,
       "norm_label": "app.tsx"
     },
     {
       "label": "AnchorButton()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "id": "app_anchorbutton",
-      "community": 0,
+      "community": 1,
       "norm_label": "anchorbutton()"
     },
     {
       "label": "AgentIcon()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L27",
+      "source_location": "L28",
       "id": "app_agenticon",
-      "community": 0,
+      "community": 1,
       "norm_label": "agenticon()"
     },
     {
@@ -63,7 +72,7 @@
       "source_file": "src/App.test.tsx",
       "source_location": "L1",
       "id": "src_app_test_tsx",
-      "community": 4,
+      "community": 6,
       "norm_label": "app.test.tsx"
     },
     {
@@ -72,8 +81,35 @@
       "source_file": "src/main.tsx",
       "source_location": "L1",
       "id": "src_main_tsx",
-      "community": 5,
+      "community": 7,
       "norm_label": "main.tsx"
+    },
+    {
+      "label": "ProblemResearchPage.tsx",
+      "file_type": "code",
+      "source_file": "src/ProblemResearchPage.tsx",
+      "source_location": "L1",
+      "id": "src_problemresearchpage_tsx",
+      "community": 0,
+      "norm_label": "problemresearchpage.tsx"
+    },
+    {
+      "label": "SectionLabel()",
+      "file_type": "code",
+      "source_file": "src/ProblemResearchPage.tsx",
+      "source_location": "L13",
+      "id": "problemresearchpage_sectionlabel",
+      "community": 0,
+      "norm_label": "sectionlabel()"
+    },
+    {
+      "label": "AnchorButton()",
+      "file_type": "code",
+      "source_file": "src/ProblemResearchPage.tsx",
+      "source_location": "L17",
+      "id": "problemresearchpage_anchorbutton",
+      "community": 0,
+      "norm_label": "anchorbutton()"
     },
     {
       "label": "setup.ts",
@@ -81,7 +117,7 @@
       "source_file": "src/test/setup.ts",
       "source_location": "L1",
       "id": "src_test_setup_ts",
-      "community": 6,
+      "community": 8,
       "norm_label": "setup.ts"
     }
   ],
@@ -90,7 +126,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0,
       "_src": "src_app_tsx",
       "_tgt": "app_anchorbutton",
@@ -102,12 +138,36 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
       "_src": "src_app_tsx",
       "_tgt": "app_agenticon",
       "source": "src_app_tsx",
       "target": "app_agenticon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ProblemResearchPage.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_src": "src_problemresearchpage_tsx",
+      "_tgt": "problemresearchpage_sectionlabel",
+      "source": "src_problemresearchpage_tsx",
+      "target": "problemresearchpage_sectionlabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ProblemResearchPage.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_src": "src_problemresearchpage_tsx",
+      "_tgt": "problemresearchpage_anchorbutton",
+      "source": "src_problemresearchpage_tsx",
+      "target": "problemresearchpage_anchorbutton",
       "confidence_score": 1.0
     }
   ],

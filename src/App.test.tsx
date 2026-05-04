@@ -1,9 +1,14 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 import { App } from './App';
 import { agents, capabilityPillars, explicitLimits, operatingFlow, showcasedCapabilities } from './content';
+import { opportunityGroups, priorityPlays, sourceLinks } from './researchContent';
 
 describe('Black Tower Consulting sellable multiagent showroom', () => {
+  afterEach(() => {
+    window.history.pushState({}, '', '/');
+  });
+
   it('renders a real business positioning above the fold', () => {
     render(<App />);
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('entregables reales');
@@ -47,5 +52,21 @@ describe('Black Tower Consulting sellable multiagent showroom', () => {
     for (const item of explicitLimits) {
       expect(screen.getByText(item)).toBeInTheDocument();
     }
+  });
+
+  it('renders the business-problem research subpage with opportunities, priorities and sources', () => {
+    window.history.pushState({}, '', '/problematicas-empresas/');
+
+    render(<App />);
+
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('problemáticas empresariales atacables');
+    expect(screen.getByText('18 problemáticas específicas con una primera entrega posible.')).toBeInTheDocument();
+    for (const group of opportunityGroups) {
+      expect(screen.getByRole('heading', { name: group.group })).toBeInTheDocument();
+    }
+    for (const play of priorityPlays) {
+      expect(screen.getByRole('heading', { name: play.title })).toBeInTheDocument();
+    }
+    expect(screen.getAllByRole('link', { name: /Deloitte/i })[0]).toHaveAttribute('href', sourceLinks[0].url);
   });
 });

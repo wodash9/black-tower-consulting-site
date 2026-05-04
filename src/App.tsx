@@ -8,6 +8,7 @@ import {
   operatingFlow,
   showcasedCapabilities
 } from './content';
+import { ProblemResearchPage } from './ProblemResearchPage';
 
 type AgentIconKind = (typeof agents)[number]['icon'];
 
@@ -132,6 +133,12 @@ function AgentIcon({ kind }: { kind: AgentIconKind }) {
 }
 
 export function App() {
+  const normalizedPath = typeof window === 'undefined' ? '/' : window.location.pathname.replace(/\/$/, '') || '/';
+
+  if (normalizedPath === '/problematicas-empresas') {
+    return <ProblemResearchPage />;
+  }
+
   return (
     <main className="site-shell">
       <header className="topbar" aria-label="Navegación principal">
@@ -146,6 +153,7 @@ export function App() {
           <a href="#perfiles">Equipo</a>
           <a href="#entorno">Sistema</a>
           <a href="#servicios">Servicios</a>
+          <a href="/problematicas-empresas/">Problemáticas</a>
           <a href="#garantias">Garantías</a>
         </nav>
       </header>
@@ -162,6 +170,7 @@ export function App() {
           <div className="hero__actions">
             <AnchorButton href="#perfiles">Ver equipo multiagente</AnchorButton>
             <AnchorButton href="#servicios" variant="secondary">Ver servicios activables</AnchorButton>
+            <AnchorButton href="/problematicas-empresas/" variant="secondary">Ver problemáticas investigadas</AnchorButton>
           </div>
           <p className="microcopy">Automatización IA · software interno · research · marketing · ventas · documentación · QA</p>
         </div>
