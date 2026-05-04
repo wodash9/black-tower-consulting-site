@@ -3,12 +3,22 @@ import { describe, expect, it } from 'vitest';
 import { App } from './App';
 import { agents, capabilityPillars, explicitLimits, operatingFlow, showcasedCapabilities } from './content';
 
-describe('Black Tower Consulting Hermes showcase', () => {
-  it('renders the showcase positioning above the fold without product-sales framing', () => {
+describe('Black Tower Consulting sellable multiagent showroom', () => {
+  it('renders a real business positioning above the fold', () => {
     render(<App />);
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('showroom multiagente de Hermes');
-    expect(screen.getByText(/Esta página no vende un producto cerrado/i)).toBeInTheDocument();
-    expect(screen.getAllByRole('link', { name: /ver perfiles disponibles/i })[0]).toHaveAttribute('href', '#perfiles');
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('entregables reales');
+    expect(screen.getByText(/Consultoría multiagente aplicada/i)).toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: /ver equipo multiagente/i })[0]).toHaveAttribute('href', '#perfiles');
+  });
+
+  it('avoids self-deprecating MVP/test-page language in the rendered copy', () => {
+    render(<App />);
+    const copy = document.body.textContent ?? '';
+    expect(copy).not.toMatch(/MVP/i);
+    expect(copy).not.toMatch(/producto cerrado/i);
+    expect(copy).not.toMatch(/esta página/i);
+    expect(copy).not.toMatch(/página suelta/i);
+    expect(copy).not.toMatch(/\bprueba\b/i);
   });
 
   it('documents every available Hermes profile with logo, role and output', () => {
@@ -21,7 +31,7 @@ describe('Black Tower Consulting Hermes showcase', () => {
     }
   });
 
-  it('shows the Hermes environment, operating flow, capabilities and explicit limits', () => {
+  it('shows the operating system, workflow, services and scoped guarantees', () => {
     render(<App />);
     for (const pillar of capabilityPillars) {
       expect(screen.getByText(pillar.title)).toBeInTheDocument();

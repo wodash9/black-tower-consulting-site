@@ -379,7 +379,7 @@ h3 {
   min-height: 220px;
   padding: 22px;
   background: #f4f4f4;
-  border-top: 3px solid #da1e28;
+  border-top: 3px solid var(--accent);
 }
 .limit-card span {
   display: grid;
@@ -387,8 +387,8 @@ h3 {
   width: 34px;
   height: 34px;
   margin-bottom: 42px;
-  color: #ffffff;
-  background: #da1e28;
+  color: #071004;
+  background: var(--accent);
   font: 700 16px/1 var(--font-mono);
 }
 .limit-card p { margin: 0; color: #2f363f; font-size: 17px; line-height: 1.48; }
@@ -423,7 +423,7 @@ h3 {
 @media (max-width: 720px) {
   .topbar { align-items: flex-start; flex-direction: column; gap: 10px; position: relative; }
   .topbar nav { width: 100%; overflow-x: auto; padding-bottom: 4px; }
-  .topbar nav a { padding: 0 12px; white-space: nowrap; }
+  .topbar nav a { padding: 0 10px; white-space: nowrap; }
   .hero { min-height: auto; padding: 48px 20px 70px; }
   h1 { font-size: clamp(36px, 10.8vw, 48px); line-height: 1.03; letter-spacing: -0.055em; }
   h2 { letter-spacing: -0.045em; }
