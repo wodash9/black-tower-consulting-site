@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { App } from './App';
 import { agents, capabilityPillars, explicitLimits, operatingFlow, showcasedCapabilities } from './content';
 import { detailedProblemGroups, opportunityGroups, priorityPlays, sourceLinks } from './researchContent';
+import { taxOpportunities, taxProfiles, taxSources } from './taxAutonomosContent';
 
 describe('Black Tower Consulting sellable multiagent showroom', () => {
   afterEach(() => {
@@ -74,5 +75,22 @@ describe('Black Tower Consulting sellable multiagent showroom', () => {
       expect(screen.getByRole('heading', { name: play.title })).toBeInTheDocument();
     }
     expect(screen.getAllByRole('link', { name: /Deloitte/i })[0]).toHaveAttribute('href', sourceLinks[0].url);
+  });
+
+  it('renders the fiscal radar subpage for Spanish autónomos with legal caveats and sources', () => {
+    window.history.pushState({}, '', '/radar-fiscal-autonomos/');
+
+    render(<App />);
+
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Radar fiscal para autónomos en España');
+    expect(screen.getByText(/No es asesoramiento fiscal/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '14 oportunidades legales donde una gestoría IA puede reducir fugas y riesgo.' })).toBeInTheDocument();
+    for (const group of taxOpportunities) {
+      expect(screen.getByRole('heading', { name: group.group })).toBeInTheDocument();
+    }
+    expect(screen.getByRole('heading', { name: taxOpportunities[0].opportunities[1].title })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: taxProfiles[0].profile })).toBeInTheDocument();
+    expect(screen.getByText(taxProfiles[4].prototype)).toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: /AEAT/i })[0]).toHaveAttribute('href', taxSources[0].url);
   });
 });

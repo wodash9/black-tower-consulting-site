@@ -8,7 +8,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        problematicasEmpresas: resolve(__dirname, 'problematicas-empresas/index.html')
+        problematicasEmpresas: resolve(__dirname, 'problematicas-empresas/index.html'),
+        radarFiscalAutonomos: resolve(__dirname, 'radar-fiscal-autonomos/index.html')
       }
     }
   },

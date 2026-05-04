@@ -652,13 +652,22 @@ h3 {
   color: #ffffff;
   background: var(--blue);
 }
-.detail-card h4 {
+.detail-card h4,
+.detail-card h3 {
   min-height: 92px;
   margin: 28px 0 18px;
   font-size: 21px;
   line-height: 1.16;
   letter-spacing: -.035em;
 }
+.tax-list {
+  margin: 0;
+  padding-left: 18px;
+}
+.tax-list li + li { margin-top: 6px; }
+.tax-opportunity-card { min-height: 610px; }
+.tax-profile-card { min-height: 610px; }
+.tax-no-go-card { min-height: 230px; }
 .detail-card dl { margin: 0; display: grid; gap: 13px; }
 .detail-card dd { margin: 5px 0 0; color: #30363d; font-size: 14px; line-height: 1.43; }
 .detail-card__wedge {

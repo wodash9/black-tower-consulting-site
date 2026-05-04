@@ -1,11 +1,11 @@
 # Graph Report - .  (2026-05-04)
 
 ## Corpus Check
-- 9 files · ~8,493 words
+- 11 files · ~11,686 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 13 nodes · 4 edges · 9 communities detected
+- 17 nodes · 6 edges · 11 communities detected
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -19,6 +19,8 @@
 - [[_COMMUNITY_Community 6|Community 6]]
 - [[_COMMUNITY_Community 7|Community 7]]
 - [[_COMMUNITY_Community 8|Community 8]]
+- [[_COMMUNITY_Community 9|Community 9]]
+- [[_COMMUNITY_Community 10|Community 10]]
 
 ## God Nodes (most connected - your core abstractions)
 
@@ -36,7 +38,7 @@ Cohesion: 0.67
 Nodes (0):
 
 ### Community 2 - "Community 2"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0):
 
 ### Community 3 - "Community 3"
@@ -63,20 +65,30 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0):
 
+### Community 9 - "Community 9"
+Cohesion: 1.0
+Nodes (0):
+
+### Community 10 - "Community 10"
+Cohesion: 1.0
+Nodes (0):
+
 ## Knowledge Gaps
-- **Thin community `Community 2`** (1 nodes): `vite.config.ts`
+- **Thin community `Community 3`** (1 nodes): `vite.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 3`** (1 nodes): `vite-env.d.ts`
+- **Thin community `Community 4`** (1 nodes): `taxAutonomosContent.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 4`** (1 nodes): `researchContent.ts`
+- **Thin community `Community 5`** (1 nodes): `vite-env.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 5`** (1 nodes): `content.ts`
+- **Thin community `Community 6`** (1 nodes): `researchContent.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 6`** (1 nodes): `App.test.tsx`
+- **Thin community `Community 7`** (1 nodes): `content.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 7`** (1 nodes): `main.tsx`
+- **Thin community `Community 8`** (1 nodes): `App.test.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 8`** (1 nodes): `setup.ts`
+- **Thin community `Community 9`** (1 nodes): `main.tsx`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 10`** (1 nodes): `setup.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions

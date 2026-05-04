@@ -9,6 +9,7 @@ import {
   showcasedCapabilities
 } from './content';
 import { ProblemResearchPage } from './ProblemResearchPage';
+import { TaxAutonomosPage } from './TaxAutonomosPage';
 
 type AgentIconKind = (typeof agents)[number]['icon'];
 
@@ -139,6 +140,10 @@ export function App() {
     return <ProblemResearchPage />;
   }
 
+  if (normalizedPath === '/radar-fiscal-autonomos') {
+    return <TaxAutonomosPage />;
+  }
+
   return (
     <main className="site-shell">
       <header className="topbar" aria-label="Navegación principal">
@@ -154,6 +159,7 @@ export function App() {
           <a href="#entorno">Sistema</a>
           <a href="#servicios">Servicios</a>
           <a href="/problematicas-empresas/">Problemáticas</a>
+          <a href="/radar-fiscal-autonomos/">Radar fiscal</a>
           <a href="#garantias">Garantías</a>
         </nav>
       </header>
@@ -171,6 +177,7 @@ export function App() {
             <AnchorButton href="#perfiles">Ver equipo multiagente</AnchorButton>
             <AnchorButton href="#servicios" variant="secondary">Ver servicios activables</AnchorButton>
             <AnchorButton href="/problematicas-empresas/" variant="secondary">Ver problemáticas investigadas</AnchorButton>
+            <AnchorButton href="/radar-fiscal-autonomos/" variant="secondary">Ver radar fiscal autónomos</AnchorButton>
           </div>
           <p className="microcopy">Automatización IA · software interno · research · marketing · ventas · documentación · QA</p>
         </div>

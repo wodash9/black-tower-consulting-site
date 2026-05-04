@@ -40,6 +40,7 @@ export function ProblemResearchPage() {
           <a href="#oportunidades">Oportunidades</a>
           <a href="#microproblemas">Microproblemas</a>
           <a href="#prioridad">Prioridad</a>
+          <a href="/radar-fiscal-autonomos/">Radar fiscal</a>
           <a href="#fuentes">Fuentes</a>
         </nav>
       </header>
