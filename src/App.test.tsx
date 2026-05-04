@@ -23,9 +23,11 @@ describe('Black Tower Consulting sellable multiagent showroom', () => {
 
   it('documents every available Hermes profile with logo, role and output', () => {
     render(<App />);
+    expect(document.querySelectorAll('.agent-icon')).toHaveLength(agents.length);
     for (const agent of agents) {
       expect(screen.getByRole('heading', { name: agent.name })).toBeInTheDocument();
-      expect(screen.getByLabelText(`Logo de ${agent.name}`)).toHaveTextContent(agent.logo);
+      const logo = screen.getByRole('img', { name: `Logo de ${agent.name}` });
+      expect(logo).toHaveTextContent(agent.logo);
       expect(screen.getByText(agent.role)).toBeInTheDocument();
       expect(screen.getByText(agent.output)).toBeInTheDocument();
     }

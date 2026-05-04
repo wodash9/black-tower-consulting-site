@@ -43,10 +43,19 @@
       "label": "AnchorButton()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L12",
+      "source_location": "L14",
       "id": "app_anchorbutton",
       "community": 0,
       "norm_label": "anchorbutton()"
+    },
+    {
+      "label": "AgentIcon()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L27",
+      "id": "app_agenticon",
+      "community": 0,
+      "norm_label": "agenticon()"
     },
     {
       "label": "App.test.tsx",
@@ -81,12 +90,24 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L12",
+      "source_location": "L14",
       "weight": 1.0,
       "_src": "src_app_tsx",
       "_tgt": "app_anchorbutton",
       "source": "src_app_tsx",
       "target": "app_anchorbutton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_src": "src_app_tsx",
+      "_tgt": "app_agenticon",
+      "source": "src_app_tsx",
+      "target": "app_agenticon",
       "confidence_score": 1.0
     }
   ],

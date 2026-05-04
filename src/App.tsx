@@ -9,6 +9,8 @@ import {
   showcasedCapabilities
 } from './content';
 
+type AgentIconKind = (typeof agents)[number]['icon'];
+
 function AnchorButton({ href, children, variant = 'primary' }: { href: string; children: string; variant?: 'primary' | 'secondary' }) {
   return (
     <a className={`btn btn--${variant}`} href={href}>
@@ -20,6 +22,113 @@ function AnchorButton({ href, children, variant = 'primary' }: { href: string; c
 
 function SectionLabel({ children }: { children: string }) {
   return <p className="section-label">{children}</p>;
+}
+
+function AgentIcon({ kind }: { kind: AgentIconKind }) {
+  const svgProps = {
+    className: 'agent-icon',
+    viewBox: '0 0 64 64',
+    role: 'presentation',
+    'aria-hidden': true,
+    focusable: false
+  } as const;
+
+  switch (kind) {
+    case 'orchestrator':
+      return (
+        <svg {...svgProps}>
+          <path d="M32 8l18 11v26L32 56 14 45V19L32 8Z" />
+          <path d="M32 17v30M20 24l12 7 12-7M20 40l12-7 12 7" />
+          <circle cx="32" cy="32" r="4" />
+        </svg>
+      );
+    case 'operations':
+      return (
+        <svg {...svgProps}>
+          <path d="M18 13h28v38H18z" />
+          <path d="M24 25l4 4 8-9M24 40l4 4 12-14" />
+          <path d="M39 25h7M39 40h7" />
+        </svg>
+      );
+    case 'technology':
+      return (
+        <svg {...svgProps}>
+          <path d="M32 10l20 12v20L32 54 12 42V22L32 10Z" />
+          <path d="M22 32h20M32 22v20" />
+          <circle cx="32" cy="32" r="7" />
+          <circle cx="20" cy="24" r="2" />
+          <circle cx="44" cy="40" r="2" />
+        </svg>
+      );
+    case 'product':
+      return (
+        <svg {...svgProps}>
+          <path d="M32 9l19 23-19 23-19-23L32 9Z" />
+          <path d="M24 32h16M32 24v16" />
+          <path d="M21 23l11 9 11-9M21 41l11-9 11 9" />
+        </svg>
+      );
+    case 'research':
+      return (
+        <svg {...svgProps}>
+          <circle cx="29" cy="29" r="14" />
+          <path d="M39 39l11 11" />
+          <path d="M29 18v22M18 29h22" />
+          <path d="M23 23l12 12M35 23L23 35" />
+        </svg>
+      );
+    case 'marketing':
+      return (
+        <svg {...svgProps}>
+          <path d="M13 37c9-1 15-5 20-15l18 18c-10 5-14 11-15 20" />
+          <path d="M21 45l-7 7M37 21l7-7" />
+          <path d="M24 34l7 7" />
+        </svg>
+      );
+    case 'sales':
+      return (
+        <svg {...svgProps}>
+          <path d="M12 22h40l-16 17v12l-8 4V39L12 22Z" />
+          <path d="M20 22c3-8 21-8 24 0" />
+          <path d="M23 48h9" />
+        </svg>
+      );
+    case 'qa':
+      return (
+        <svg {...svgProps}>
+          <circle cx="28" cy="28" r="14" />
+          <path d="M38 38l12 12" />
+          <path d="M22 28l5 5 10-12" />
+        </svg>
+      );
+    case 'finance':
+      return (
+        <svg {...svgProps}>
+          <circle cx="24" cy="38" r="10" />
+          <circle cx="39" cy="27" r="10" />
+          <path d="M39 20v14M34 27h10" />
+          <path d="M16 51h35" />
+        </svg>
+      );
+    case 'success':
+      return (
+        <svg {...svgProps}>
+          <path d="M32 11c11 0 19 8 19 19 0 15-19 25-19 25S13 45 13 30c0-11 8-19 19-19Z" />
+          <path d="M23 31l6 6 13-14" />
+          <path d="M21 45h22" />
+        </svg>
+      );
+    case 'legal':
+      return (
+        <svg {...svgProps}>
+          <path d="M32 11v42M18 20h28" />
+          <path d="M21 20l-9 16h18L21 20ZM43 20l-9 16h18L43 20Z" />
+          <path d="M23 53h18" />
+        </svg>
+      );
+    default:
+      return null;
+  }
 }
 
 export function App() {
@@ -44,7 +153,7 @@ export function App() {
       <section id="inicio" className="hero grid-bg">
         <div className="hero__copy">
           <SectionLabel>Consultoría multiagente aplicada</SectionLabel>
-          <h1>Un equipo de agentes especializados para convertir ideas y procesos en entregables reales.</h1>
+          <h1>Equipo multiagente para convertir ideas y procesos en entregables reales.</h1>
           <p className="hero__lead">
             Black Tower Consulting coordina estrategia, producto, tecnología, investigación,
             marketing, ventas y QA mediante perfiles Hermes, Telegram como bus operativo,
@@ -84,6 +193,10 @@ export function App() {
               <strong>Columbo</strong>
             </div>
           </div>
+          <div className="console-review">
+            <span>UI REVIEW</span>
+            <p>Valentine ordena experiencia, Kvothe afina mensaje y Columbo revisa claridad visual antes de publicar.</p>
+          </div>
           <div className="console-line"><span>ENGAGEMENT</span><p>Brief → dirección → ejecución especializada → QA → entrega.</p></div>
           <div className="console-line console-line--ok"><span>STANDARD</span><p>Alcance claro, herramientas reales y revisión crítica antes de presentar resultados.</p></div>
         </aside>
@@ -119,7 +232,10 @@ export function App() {
           {agents.map((agent) => (
             <article className="agent-card" key={agent.profile} style={{ '--agent-accent': agent.accent } as CSSProperties}>
               <div className="agent-card__top">
-                <div className="agent-logo" aria-label={`Logo de ${agent.name}`}>{agent.logo}</div>
+                <div className="agent-logo" role="img" aria-label={`Logo de ${agent.name}`}>
+                  <AgentIcon kind={agent.icon} />
+                  <span className="agent-logo__code">{agent.logo}</span>
+                </div>
                 <div>
                   <h3>{agent.name}</h3>
                   <p>{agent.role}</p>

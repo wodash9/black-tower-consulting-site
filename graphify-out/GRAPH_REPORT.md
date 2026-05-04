@@ -1,11 +1,11 @@
 # Graph Report - .  (2026-05-04)
 
 ## Corpus Check
-- 7 files · ~2,490 words
+- 7 files · ~2,907 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 8 nodes · 1 edges · 7 communities detected
+- 9 nodes · 2 edges · 7 communities detected
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -26,7 +26,7 @@
 ## Communities
 
 ### Community 0 - "Community 0"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 1 - "Community 1"
@@ -54,8 +54,6 @@ Cohesion: 1.0
 Nodes (0): 
 
 ## Knowledge Gaps
-- **Thin community `Community 0`** (2 nodes): `AnchorButton()`, `App.tsx`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 1`** (1 nodes): `vite.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 2`** (1 nodes): `vite-env.d.ts`
