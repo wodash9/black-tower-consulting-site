@@ -32,7 +32,9 @@ function Header() {
   return (
     <header className="topbar" aria-label="Navegación principal">
       <a className="brand" href="#inicio" aria-label="Black Tower Consulting inicio">
-        <span className="brand-mark" aria-hidden="true">BT</span>
+        <span className="brand-mark" aria-hidden="true">
+          <img src="/black-tower-logo-64.png" alt="" />
+        </span>
         <span>
           <strong>Black Tower</strong>
           <small>MVP consulting studio</small>

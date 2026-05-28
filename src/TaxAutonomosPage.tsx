@@ -30,7 +30,9 @@ export function TaxAutonomosPage() {
     <main className="site-shell research-page tax-page">
       <header className="topbar" aria-label="Navegación principal">
         <a className="brand" href="/" aria-label="Black Tower Consulting inicio">
-          <span className="brand-mark" aria-hidden="true">BT</span>
+          <span className="brand-mark" aria-hidden="true">
+            <img src="/black-tower-logo-64.png" alt="" />
+          </span>
           <span>
             <strong>Black Tower</strong>
             <small>Fiscal research</small>
