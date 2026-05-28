@@ -1,58 +1,42 @@
 import { render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { App } from './App';
-import { agents, capabilityPillars, explicitLimits, operatingFlow, showcasedCapabilities } from './content';
+import { audiences, comparisonRows, differentiators, includedItems, mvpFormats, packages, processSteps } from './content';
 import { detailedProblemGroups, opportunityGroups, priorityPlays, sourceLinks } from './researchContent';
 import { taxOpportunities, taxProfiles, taxSources } from './taxAutonomosContent';
 
-describe('Black Tower Consulting sellable multiagent showroom', () => {
+describe('Black Tower Consulting MVP landing', () => {
   afterEach(() => {
     window.history.pushState({}, '', '/');
   });
 
-  it('renders a real business positioning above the fold', () => {
+  it('renders MVP positioning above the fold with clear conversion actions', () => {
     render(<App />);
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('entregables reales');
-    expect(screen.getByText(/Consultoría multiagente aplicada/i)).toBeInTheDocument();
-    expect(screen.getAllByRole('link', { name: /ver equipo multiagente/i })[0]).toHaveAttribute('href', '#perfiles');
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Lanza tu MVP en semanas');
+    expect(screen.getByText(/Consultora de producto, diseño y desarrollo/i)).toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: /Agendar diagnóstico MVP/i })[0]).toHaveAttribute('href', expect.stringContaining('mailto:'));
+    expect(screen.getByText('MVP funcional en 2–6 semanas')).toBeInTheDocument();
   });
 
-  it('avoids self-deprecating MVP/test-page language in the rendered copy', () => {
+  it('uses business-specific MVP copy and avoids generic filler claims', () => {
     render(<App />);
     const copy = document.body.textContent ?? '';
-    expect(copy).not.toMatch(/MVP/i);
-    expect(copy).not.toMatch(/producto cerrado/i);
-    expect(copy).not.toMatch(/esta página/i);
-    expect(copy).not.toMatch(/página suelta/i);
-    expect(copy).not.toMatch(/\bprueba\b/i);
+    expect(copy).toMatch(/producto mínimo valioso/i);
+    expect(copy).toMatch(/validar una hipótesis real de negocio/i);
+    expect(copy).not.toMatch(/lorem ipsum/i);
+    expect(copy).not.toMatch(/soluciones innovadoras para transformar tu negocio/i);
+    expect(copy).not.toMatch(/potencia el futuro/i);
   });
 
-  it('documents every available Hermes profile with logo, role and output', () => {
+  it('documents the problem, audience, build formats, process, offers and deliverables', () => {
     render(<App />);
-    expect(document.querySelectorAll('.agent-icon')).toHaveLength(agents.length);
-    for (const agent of agents) {
-      expect(screen.getByRole('heading', { name: agent.name })).toBeInTheDocument();
-      const logo = screen.getByRole('img', { name: `Logo de ${agent.name}` });
-      expect(logo).toHaveTextContent(agent.logo);
-      expect(screen.getByText(agent.role)).toBeInTheDocument();
-      expect(screen.getByText(agent.output)).toBeInTheDocument();
-    }
-  });
-
-  it('shows the operating system, workflow, services and scoped guarantees', () => {
-    render(<App />);
-    for (const pillar of capabilityPillars) {
-      expect(screen.getByText(pillar.title)).toBeInTheDocument();
-    }
-    for (const item of operatingFlow) {
-      expect(screen.getByText(item.title)).toBeInTheDocument();
-    }
-    for (const item of showcasedCapabilities) {
-      expect(screen.getByText(item)).toBeInTheDocument();
-    }
-    for (const item of explicitLimits) {
-      expect(screen.getByText(item)).toBeInTheDocument();
-    }
+    for (const row of comparisonRows) expect(screen.getByText(row.blackTower)).toBeInTheDocument();
+    for (const audience of audiences) expect(screen.getByRole('heading', { name: audience.title })).toBeInTheDocument();
+    for (const format of mvpFormats) expect(screen.getByText(format)).toBeInTheDocument();
+    for (const step of processSteps) expect(screen.getByRole('heading', { name: step.title })).toBeInTheDocument();
+    for (const pack of packages) expect(screen.getByRole('heading', { name: pack.name })).toBeInTheDocument();
+    for (const item of differentiators) expect(screen.getByRole('heading', { name: item.title })).toBeInTheDocument();
+    for (const item of includedItems) expect(screen.getByText(item)).toBeInTheDocument();
   });
 
   it('renders the business-problem research subpage with opportunities, priorities and sources', () => {

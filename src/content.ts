@@ -1,187 +1,159 @@
-export const contactHref = 'mailto:hola@etharlia.com?subject=Black%20Tower%20Consulting%20%2F%20sistema%20multiagente&body=Hola%2C%20quiero%20comentar%20una%20posible%20colaboraci%C3%B3n%20con%20Black%20Tower%20Consulting.%0A%0AContexto%3A%0AProceso%2C%20idea%20o%20equipo%20a%20mejorar%3A%0AResultado%20que%20busco%3A';
+export const contactHref = 'mailto:hola@etharlia.com?subject=Diagn%C3%B3stico%20MVP%20Black%20Tower%20Consulting&body=Hola%2C%20quiero%20agendar%20un%20diagn%C3%B3stico%20MVP.%0A%0AIdea%20o%20producto%3A%0AUsuario%20principal%3A%0AObjetivo%20a%20validar%3A%0APlazo%20ideal%3A';
 
-export const agents = [
+export const heroProofPoints = [
+  'MVP funcional en 2–6 semanas',
+  'Scope cerrado antes de construir',
+  'UX/UI premium, backend, deploy y analytics',
+  'Roadmap para iterar con evidencia real'
+] as const;
+
+export const problemSignals = [
+  'Ideas con potencial que se quedan bloqueadas por falta de equipo técnico.',
+  'Productos sobredimensionados antes de validar demanda real.',
+  'Demos comerciales que necesitan convertirse en producto usable.',
+  'Equipos internos saturados o sin velocidad para experimentar.',
+  'Inversores o clientes que quieren ver algo más sólido que una presentación.'
+] as const;
+
+export const comparisonRows = [
+  { label: 'Alcance', traditional: 'Feature list inflada', blackTower: 'Hipótesis y flujo crítico' },
+  { label: 'Tiempo', traditional: '3–6 meses sin señales', blackTower: '2–6 semanas hasta usuarios' },
+  { label: 'Entrega', traditional: 'Pantallas o código aislado', blackTower: 'Producto desplegado y medible' },
+  { label: 'Decisión', traditional: 'Opiniones y retrasos', blackTower: 'Feedback, datos y próximos pasos' }
+] as const;
+
+export const audiences = [
   {
-    name: 'Seldon',
-    profile: 'seldon-ceo',
-    role: 'CEO / Orquestador',
-    reference: 'Fundación',
-    logo: 'SD',
-    icon: 'orchestrator',
-    accent: '#76b900',
-    summary: 'Convierte una petición ambigua en prioridades, responsables, riesgos y próxima acción verificable.',
-    does: ['Decide foco y secuencia', 'Asigna trabajo al perfil correcto', 'Aprueba entregables con criterio de negocio'],
-    output: 'Veredicto · Prioridad · Responsable · Riesgos · Próxima acción'
+    title: 'Founders en etapa temprana',
+    detail: 'Para validar una idea, enseñar tracción inicial y llegar a usuarios reales antes de levantar capital o montar un equipo completo.',
+    outcomes: ['Producto funcional', 'Landing o adquisición', 'Demo para inversores', 'Métricas iniciales']
   },
   {
-    name: 'Jeeves',
-    profile: 'jeeves-ops',
-    role: 'Operaciones',
-    reference: 'Jeeves and Wooster',
-    logo: 'JV',
-    icon: 'operations',
-    accent: '#9ef01a',
-    summary: 'Baja decisiones a ejecución: tareas, dependencias, bloqueos, deadlines y documentación operativa.',
-    does: ['Ordena kanban y checkpoints', 'Detecta dependencias', 'Mantiene el sistema sin ruido'],
-    output: 'Plan operativo · Responsables · Dependencias · Bloqueos · Checkpoint'
+    title: 'Empresas con nueva línea digital',
+    detail: 'Para probar un portal, herramienta interna, servicio digital o automatización sin comprometer meses del roadmap interno.',
+    outcomes: ['MVP alineado a negocio', 'Integraciones esenciales', 'Feedback de usuarios', 'Base para escalar']
   },
   {
-    name: 'Daneel',
-    profile: 'daneel-cto',
-    role: 'Tecnología',
-    reference: 'Robots / Fundación',
-    logo: 'DN',
-    icon: 'technology',
-    accent: '#0f62fe',
-    summary: 'Diseña soluciones técnicas simples, fiables y vendibles sin convertir cada idea en una plataforma enorme.',
-    does: ['Arquitectura mínima', 'Automatización y software interno', 'Paso claro de concepto a sistema usable'],
-    output: 'Solución técnica · Stack · Arquitectura mínima · Riesgos · Validación'
-  },
-  {
-    name: 'Valentine',
-    profile: 'valentine-product',
-    role: 'Producto',
-    reference: 'El juego de Ender',
-    logo: 'VL',
-    icon: 'product',
-    accent: '#ff7eb6',
-    summary: 'Evalúa si una idea merece construirse: usuario, dolor, urgencia, alcance mínimo y riesgo de scope creep.',
-    does: ['Define alcance inicial', 'Cuestiona la utilidad real', 'Reduce funcionalidades decorativas'],
-    output: 'Seguir / pivotar / descartar · Usuario · Dolor · Alcance · Riesgos'
-  },
-  {
-    name: 'Lyra',
-    profile: 'lyra-research',
-    role: 'Research',
-    reference: 'La materia oscura',
-    logo: 'LY',
-    icon: 'research',
-    accent: '#33b1ff',
-    summary: 'Investiga mercado, competidores, señales y fuentes separando hechos, hipótesis y opinión.',
-    does: ['Búsqueda y síntesis', 'Mapas de mercado', 'Señales para producto y ventas'],
-    output: 'Hallazgos · Señales · Riesgos · Oportunidades · Fuentes · Recomendación'
-  },
-  {
-    name: 'Kvothe',
-    profile: 'kvothe-marketing',
-    role: 'Marketing',
-    reference: 'Crónica del asesino de reyes',
-    logo: 'KV',
-    icon: 'marketing',
-    accent: '#ff832b',
-    summary: 'Transforma capacidades técnicas en narrativa clara, mensajes entendibles, copy y contenido sin humo corporativo.',
-    does: ['Posicionamiento', 'Hooks y contenido', 'Traducción técnico → negocio'],
-    output: 'Posicionamiento · Mensaje · Hooks · Canal · Copy · Riesgo de percepción'
-  },
-  {
-    name: 'Locke',
-    profile: 'locke-sales',
-    role: 'Ventas',
-    reference: 'The Lies of Locke Lamora',
-    logo: 'LK',
-    icon: 'sales',
-    accent: '#f1c21b',
-    summary: 'Convierte una capacidad técnica en una conversación comercial honesta: leads, objeciones y próximos pasos.',
-    does: ['Outbound y follow-up', 'Objeciones', 'Propuestas acotadas'],
-    output: 'Lead objetivo · Apertura · Objeciones · Cierre · Próximo paso'
-  },
-  {
-    name: 'Columbo',
-    profile: 'columbo-qa',
-    role: 'QA / Revisión crítica',
-    reference: 'Columbo',
-    logo: 'CB',
-    icon: 'qa',
-    accent: '#da1e28',
-    summary: 'Busca fallos antes de que lleguen al cliente o a Ventura: claridad, lógica, supuestos, bugs y riesgos.',
-    does: ['QA de entregables', 'Lectura incómoda útil', 'Bloqueo si falta evidencia'],
-    output: 'Estado · Problemas · Riesgos · Cambios obligatorios · Revisión final'
-  },
-  {
-    name: 'Lipwig',
-    profile: 'lipwig-finance',
-    role: 'Finanzas',
-    reference: 'Mundodisco',
-    logo: 'LW',
-    icon: 'finance',
-    accent: '#be95ff',
-    summary: 'Protege margen, caja y esfuerzo: precios, coste real, rentabilidad y modelos comerciales sostenibles.',
-    does: ['Cálculo de esfuerzo', 'Pricing', 'Riesgo de proyectos mal pagados'],
-    output: 'Coste estimado · Precio · Margen · Riesgo financiero · Recomendación'
-  },
-  {
-    name: 'Cordelia',
-    profile: 'cordelia-success',
-    role: 'Customer Success',
-    reference: 'Saga Vorkosigan',
-    logo: 'CD',
-    icon: 'success',
-    accent: '#42be65',
-    summary: 'Asegura que quien recibe un entregable o automatización entiende cómo usarlo, dónde falla y cómo adoptar el cambio.',
-    does: ['Guías de uso', 'Dudas del cliente', 'Seguimiento y adopción'],
-    output: 'Estado del cliente · Dudas · Guía · Riesgos de adopción · Seguimiento'
-  },
-  {
-    name: 'Portia',
-    profile: 'portia-legal',
-    role: 'Legal / Compliance',
-    reference: 'El mercader de Venecia',
-    logo: 'PT',
-    icon: 'legal',
-    accent: '#08bdba',
-    summary: 'Revisa privacidad, contratos básicos, datos sensibles y señales de stop. No sustituye a un abogado real.',
-    does: ['Checklists RGPD/compliance', 'Riesgos de datos', 'Límites legales de automatización'],
-    output: 'Riesgos legales · Datos sensibles · Checklist · Recomendación · Stop si aplica'
+    title: 'Equipos comerciales con oportunidad concreta',
+    detail: 'Para convertir una propuesta o piloto en una experiencia funcional que ayude a cerrar clientes y demostrar valor.',
+    outcomes: ['Demo interactiva', 'Flujo operativo', 'Producto presentable', 'Salida rápida']
   }
 ] as const;
 
-export const capabilityPillars = [
+export const mvpFormats = [
+  'SaaS iniciales y portales B2B',
+  'Dashboards operativos y paneles internos',
+  'Marketplaces de primera versión',
+  'Apps web para validar nuevos servicios',
+  'Portales de clientes o proveedores',
+  'Prototipos funcionales para fundraising',
+  'Automatizaciones con interfaz de usuario',
+  'Integraciones entre sistemas existentes'
+] as const;
+
+export const processSteps = [
   {
-    title: 'Dirección multiagente',
-    eyebrow: 'Equipo',
-    detail: 'Cada perfil tiene identidad, memoria, reglas y formato de salida. Seldon coordina y el resto interviene cuando aporta valor concreto.',
-    tools: ['profiles', 'skills', 'memory', 'subagents']
+    step: '01',
+    title: 'Discovery estratégico',
+    duration: '2–4 días',
+    detail: 'Definimos usuario principal, hipótesis de negocio, alcance esencial y criterios de éxito.',
+    deliverables: ['Brief de producto', 'Hipótesis a validar', 'User journeys', 'Priorización']
   },
   {
-    title: 'Coordinación visible por Telegram',
-    eyebrow: 'Operación',
-    detail: 'Las tareas entran por canales visibles y se gestionan con protocolo claro: TASK, DONE, BLOCKED y QA para evitar ruido y cerrar trabajo.',
-    tools: ['telegram', 'TASK/DONE/BLOCKED/QA', 'send_message']
+    step: '02',
+    title: 'Blueprint de producto',
+    duration: '3–5 días',
+    detail: 'Convertimos la idea en arquitectura de producto: pantallas clave, stack técnico y backlog cerrado.',
+    deliverables: ['Wireframes', 'Arquitectura funcional', 'Plan de sprints', 'Métricas iniciales']
   },
   {
-    title: 'Conocimiento vivo en Etharlia',
-    eyebrow: 'Memoria',
-    detail: 'Estrategia, decisiones, perfiles, kanban y notas de desarrollo quedan documentadas para que el sistema aprenda y mantenga continuidad.',
-    tools: ['Etharlia', 'wiki/projects', 'development notes']
+    step: '03',
+    title: 'Build sprint',
+    duration: '2–4 semanas',
+    detail: 'Diseñamos y desarrollamos el flujo que valida el negocio con revisiones visibles cada semana.',
+    deliverables: ['Interfaz premium', 'Backend/API', 'Base de datos', 'Integraciones']
   },
   {
-    title: 'Herramientas conectadas a producción',
-    eyebrow: 'Entrega',
-    detail: 'El entorno puede leer y escribir repos, ejecutar validaciones, navegar webs, revisar código, programar tareas y desplegar con infraestructura existente.',
-    tools: ['terminal', 'browser', 'github', 'cronjobs', 'MCP']
+    step: '04',
+    title: 'Launch & learning',
+    duration: '3–7 días',
+    detail: 'Preparamos producción, QA, medición, documentación y plan de aprendizaje post-lanzamiento.',
+    deliverables: ['Deploy', 'Analytics', 'QA funcional', 'Roadmap de iteración']
   }
 ] as const;
 
-export const operatingFlow = [
-  { step: '01', title: 'Entrada cualificada', detail: 'Un proceso, idea o entregable entra con contexto, restricciones y resultado esperado.' },
-  { step: '02', title: 'Orquestación ejecutiva', detail: 'Seldon define prioridad, responsable, criterio de aceptación y riesgos antes de mover recursos.' },
-  { step: '03', title: 'Trabajo especializado', detail: 'El perfil adecuado usa herramientas concretas: repo, navegador, Obsidian, terminal, research o mensajería.' },
-  { step: '04', title: 'Revisión crítica', detail: 'Columbo revisa completitud, supuestos, bugs y promesas no validadas antes de presentar el resultado.' },
-  { step: '05', title: 'Entrega accionable', detail: 'El cierre es una decisión, commit, nota, sistema, documento o siguiente acción verificable.' }
+export const packages = [
+  {
+    name: 'MVP Scope Sprint',
+    timing: '3–5 días',
+    description: 'Para ordenar una idea antes de construir y salir con un alcance defendible.',
+    includes: ['Workshop de producto', 'Hipótesis y usuario', 'Flujos principales', 'Roadmap técnico', 'Estimación de esfuerzo'],
+    cta: 'Definir alcance',
+    featured: false
+  },
+  {
+    name: 'MVP Launch',
+    timing: '2–6 semanas',
+    description: 'Para diseñar, construir y lanzar una primera versión funcional lista para validar.',
+    includes: ['Discovery', 'UX/UI', 'Full-stack', 'Deploy', 'QA', 'Analytics básico', 'Handoff'],
+    cta: 'Lanzar mi MVP',
+    featured: true
+  },
+  {
+    name: 'MVP Growth Partner',
+    timing: 'Mensual',
+    description: 'Para equipos que ya lanzaron y necesitan iterar con velocidad después de los primeros datos.',
+    includes: ['Priorización semanal', 'Nuevas funcionalidades', 'Optimización UX', 'Automatizaciones', 'Soporte técnico'],
+    cta: 'Escalar producto',
+    featured: false
+  }
 ] as const;
 
-export const showcasedCapabilities = [
-  'Diseñar una organización multiagente con roles separados y protocolo común.',
-  'Convertir conocimiento disperso en planes, kanban, documentación y decisiones trazables.',
-  'Modificar código real, ejecutar validaciones y mantener historial en Git.',
-  'Coordinar tareas desde Telegram sin que los perfiles generen ruido entre sí.',
-  'Construir automatizaciones, interfaces internas y flujos de IA sobre necesidades concretas.',
-  'Revisar entregables con QA antes de enviarlos, publicarlos o usarlos como soporte comercial.'
+export const differentiators = [
+  { title: 'Estrategia antes que código', detail: 'Definimos qué debe probar el MVP y qué no vale la pena construir todavía.' },
+  { title: 'Diseño premium desde la primera versión', detail: 'Mínimo no significa improvisado: la experiencia debe transmitir confianza a clientes e inversores.' },
+  { title: 'Desarrollo rápido, pero sostenible', detail: 'Creamos una base técnica clara para iterar sin rehacerlo todo tras la validación inicial.' },
+  { title: 'Comunicación ejecutiva', detail: 'Reportamos avances, decisiones y riesgos en lenguaje de negocio, no con ruido técnico.' },
+  { title: 'Orientación a lanzamiento', detail: 'El objetivo no es entregar código: es poner un producto en manos de usuarios reales.' }
 ] as const;
 
-export const explicitLimits = [
-  'El alcance se define por entregable: automatización, interfaz, investigación, revisión o documento operativo.',
-  'Los perfiles amplifican criterio humano; Ventura sigue validando las prioridades y decisiones importantes.',
-  'Las automatizaciones con datos reales requieren revisión de privacidad, permisos y límites técnicos.',
-  'Cada capacidad se valida en el contexto del cliente antes de comprometer una implantación crítica.'
+export const successMetrics = [
+  'Tiempo hasta primer usuario real',
+  'Conversaciones comerciales generadas',
+  'Activación del flujo principal',
+  'Conversión landing → demo o registro',
+  'Feedback cualitativo de usuarios',
+  'Señales de disposición de pago'
+] as const;
+
+export const includedItems = [
+  'Definición del problema y usuario objetivo',
+  'Priorización de funcionalidades esenciales',
+  'UX/UI del flujo principal',
+  'Frontend, backend y base de datos',
+  'Autenticación e integraciones críticas si aplican',
+  'Panel de administración básico si aporta validación',
+  'Deploy en producción',
+  'Analytics y eventos principales',
+  'QA funcional y documentación de handoff',
+  'Roadmap de siguientes iteraciones'
+] as const;
+
+export const faqs = [
+  {
+    question: '¿Qué significa MVP para Black Tower?',
+    answer: 'Un producto mínimo valioso: la versión más pequeña que permite validar una hipótesis real de negocio con usuarios, clientes o stakeholders.'
+  },
+  {
+    question: '¿En cuánto tiempo podéis lanzar?',
+    answer: 'Normalmente entre 2 y 6 semanas, dependiendo del alcance. Si la idea aún está difusa, empezamos con un Scope Sprint.'
+  },
+  {
+    question: '¿El MVP queda listo para usuarios reales?',
+    answer: 'Sí. El objetivo es entregar una versión funcional, desplegada y usable, no solo un prototipo visual.'
+  },
+  {
+    question: '¿Podéis trabajar con un equipo técnico existente?',
+    answer: 'Sí. Podemos operar como equipo externo completo o colaborar con producto, diseño, frontend, backend o arquitectura.'
+  }
 ] as const;

@@ -1,19 +1,21 @@
-import type { CSSProperties } from 'react';
-
 import {
-  agents,
-  capabilityPillars,
+  audiences,
+  comparisonRows,
   contactHref,
-  explicitLimits,
-  operatingFlow,
-  showcasedCapabilities
+  differentiators,
+  faqs,
+  heroProofPoints,
+  includedItems,
+  mvpFormats,
+  packages,
+  problemSignals,
+  processSteps,
+  successMetrics
 } from './content';
 import { ProblemResearchPage } from './ProblemResearchPage';
 import { TaxAutonomosPage } from './TaxAutonomosPage';
 
-type AgentIconKind = (typeof agents)[number]['icon'];
-
-function AnchorButton({ href, children, variant = 'primary' }: { href: string; children: string; variant?: 'primary' | 'secondary' }) {
+function AnchorButton({ href, children, variant = 'primary' }: { href: string; children: string; variant?: 'primary' | 'secondary' | 'dark' }) {
   return (
     <a className={`btn btn--${variant}`} href={href}>
       <span>{children}</span>
@@ -26,282 +28,163 @@ function SectionLabel({ children }: { children: string }) {
   return <p className="section-label">{children}</p>;
 }
 
-function AgentIcon({ kind }: { kind: AgentIconKind }) {
-  const svgProps = {
-    className: 'agent-icon',
-    viewBox: '0 0 64 64',
-    role: 'presentation',
-    'aria-hidden': true,
-    focusable: false
-  } as const;
+function Header() {
+  return (
+    <header className="topbar" aria-label="Navegación principal">
+      <a className="brand" href="#inicio" aria-label="Black Tower Consulting inicio">
+        <span className="brand-mark" aria-hidden="true">BT</span>
+        <span>
+          <strong>Black Tower</strong>
+          <small>MVP consulting studio</small>
+        </span>
+      </a>
+      <nav>
+        <a href="#problema">Problema</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#paquetes">Ofertas</a>
+        <a href="#incluye">Incluye</a>
+        <a href="/problematicas-empresas/">Research</a>
+        <a href="#contacto">Contacto</a>
+        <a className="nav-cta" href={contactHref}>Diagnóstico</a>
+      </nav>
+    </header>
+  );
+}
 
-  switch (kind) {
-    case 'orchestrator':
-      return (
-        <svg {...svgProps}>
-          <path d="M32 8l18 11v26L32 56 14 45V19L32 8Z" />
-          <path d="M32 17v30M20 24l12 7 12-7M20 40l12-7 12 7" />
-          <circle cx="32" cy="32" r="4" />
-        </svg>
-      );
-    case 'operations':
-      return (
-        <svg {...svgProps}>
-          <path d="M18 13h28v38H18z" />
-          <path d="M24 25l4 4 8-9M24 40l4 4 12-14" />
-          <path d="M39 25h7M39 40h7" />
-        </svg>
-      );
-    case 'technology':
-      return (
-        <svg {...svgProps}>
-          <path d="M32 10l20 12v20L32 54 12 42V22L32 10Z" />
-          <path d="M22 32h20M32 22v20" />
-          <circle cx="32" cy="32" r="7" />
-          <circle cx="20" cy="24" r="2" />
-          <circle cx="44" cy="40" r="2" />
-        </svg>
-      );
-    case 'product':
-      return (
-        <svg {...svgProps}>
-          <path d="M32 9l19 23-19 23-19-23L32 9Z" />
-          <path d="M24 32h16M32 24v16" />
-          <path d="M21 23l11 9 11-9M21 41l11-9 11 9" />
-        </svg>
-      );
-    case 'research':
-      return (
-        <svg {...svgProps}>
-          <circle cx="29" cy="29" r="14" />
-          <path d="M39 39l11 11" />
-          <path d="M29 18v22M18 29h22" />
-          <path d="M23 23l12 12M35 23L23 35" />
-        </svg>
-      );
-    case 'marketing':
-      return (
-        <svg {...svgProps}>
-          <path d="M13 37c9-1 15-5 20-15l18 18c-10 5-14 11-15 20" />
-          <path d="M21 45l-7 7M37 21l7-7" />
-          <path d="M24 34l7 7" />
-        </svg>
-      );
-    case 'sales':
-      return (
-        <svg {...svgProps}>
-          <path d="M12 22h40l-16 17v12l-8 4V39L12 22Z" />
-          <path d="M20 22c3-8 21-8 24 0" />
-          <path d="M23 48h9" />
-        </svg>
-      );
-    case 'qa':
-      return (
-        <svg {...svgProps}>
-          <circle cx="28" cy="28" r="14" />
-          <path d="M38 38l12 12" />
-          <path d="M22 28l5 5 10-12" />
-        </svg>
-      );
-    case 'finance':
-      return (
-        <svg {...svgProps}>
-          <circle cx="24" cy="38" r="10" />
-          <circle cx="39" cy="27" r="10" />
-          <path d="M39 20v14M34 27h10" />
-          <path d="M16 51h35" />
-        </svg>
-      );
-    case 'success':
-      return (
-        <svg {...svgProps}>
-          <path d="M32 11c11 0 19 8 19 19 0 15-19 25-19 25S13 45 13 30c0-11 8-19 19-19Z" />
-          <path d="M23 31l6 6 13-14" />
-          <path d="M21 45h22" />
-        </svg>
-      );
-    case 'legal':
-      return (
-        <svg {...svgProps}>
-          <path d="M32 11v42M18 20h28" />
-          <path d="M21 20l-9 16h18L21 20ZM43 20l-9 16h18L43 20Z" />
-          <path d="M23 53h18" />
-        </svg>
-      );
-    default:
-      return null;
-  }
+function BlueprintConsole() {
+  return (
+    <aside className="blueprint-console" aria-label="Blueprint visual de creación MVP">
+      <div className="console-topline">
+        <span>MVP Blueprint</span>
+        <strong>2–6 semanas</strong>
+      </div>
+      <div className="product-window">
+        <div className="window-bar"><span /><span /><span /></div>
+        <div className="metric-row">
+          <div><small>Hypothesis</small><strong>Validated problem</strong></div>
+          <div><small>Core flow</small><strong>Live product</strong></div>
+        </div>
+        <div className="flow-map" aria-hidden="true">
+          <span>Scope</span>
+          <i />
+          <span>Build</span>
+          <i />
+          <span>Launch</span>
+        </div>
+        <div className="screen-grid">
+          <div className="screen-card screen-card--large">
+            <small>Primary user journey</small>
+            <strong>Signup → core action → feedback</strong>
+            <div className="progress"><span /></div>
+          </div>
+          <div className="screen-card"><small>Analytics</small><strong>Events wired</strong></div>
+          <div className="screen-card"><small>Release</small><strong>Production ready</strong></div>
+        </div>
+      </div>
+      <div className="console-checks">
+        <span>Scope locked</span>
+        <span>Design reviewed</span>
+        <span>QA passed</span>
+      </div>
+    </aside>
+  );
 }
 
 export function App() {
   const normalizedPath = typeof window === 'undefined' ? '/' : window.location.pathname.replace(/\/$/, '') || '/';
 
-  if (normalizedPath === '/problematicas-empresas') {
-    return <ProblemResearchPage />;
-  }
-
-  if (normalizedPath === '/radar-fiscal-autonomos') {
-    return <TaxAutonomosPage />;
-  }
+  if (normalizedPath === '/problematicas-empresas') return <ProblemResearchPage />;
+  if (normalizedPath === '/radar-fiscal-autonomos') return <TaxAutonomosPage />;
 
   return (
     <main className="site-shell">
-      <header className="topbar" aria-label="Navegación principal">
-        <a className="brand" href="#inicio" aria-label="Black Tower Consulting inicio">
-          <span className="brand-mark" aria-hidden="true">BT</span>
-          <span>
-            <strong>Black Tower</strong>
-            <small>AI operations studio</small>
-          </span>
-        </a>
-        <nav>
-          <a href="#perfiles">Equipo</a>
-          <a href="#entorno">Sistema</a>
-          <a href="#servicios">Servicios</a>
-          <a href="/problematicas-empresas/">Problemáticas</a>
-          <a href="/radar-fiscal-autonomos/">Radar fiscal</a>
-          <a href="#garantias">Garantías</a>
-        </nav>
-      </header>
+      <Header />
 
-      <section id="inicio" className="hero grid-bg">
+      <section id="inicio" className="hero">
         <div className="hero__copy">
-          <SectionLabel>Consultoría multiagente aplicada</SectionLabel>
-          <h1>Equipo multiagente para convertir ideas y procesos en entregables reales.</h1>
+          <SectionLabel>Consultora de producto, diseño y desarrollo</SectionLabel>
+          <h1>Lanza tu MVP en semanas, no en trimestres.</h1>
           <p className="hero__lead">
-            Black Tower Consulting coordina estrategia, producto, tecnología, investigación,
-            marketing, ventas y QA mediante perfiles Hermes, Telegram como bus operativo,
-            Etharlia como memoria de trabajo y herramientas conectadas al desarrollo real.
+            Black Tower Consulting diseña y construye productos mínimos valiosos para founders,
+            startups y equipos de negocio que necesitan validar una idea, cerrar pilotos o preparar
+            una demo comercial con un producto real en 2–6 semanas.
           </p>
           <div className="hero__actions">
-            <AnchorButton href="#perfiles">Ver equipo multiagente</AnchorButton>
-            <AnchorButton href="#servicios" variant="secondary">Ver servicios activables</AnchorButton>
-            <AnchorButton href="/problematicas-empresas/" variant="secondary">Ver problemáticas investigadas</AnchorButton>
-            <AnchorButton href="/radar-fiscal-autonomos/" variant="secondary">Ver radar fiscal autónomos</AnchorButton>
+            <AnchorButton href={contactHref}>Agendar diagnóstico MVP</AnchorButton>
+            <AnchorButton href="#proceso" variant="secondary">Ver cómo trabajamos</AnchorButton>
           </div>
-          <p className="microcopy">Automatización IA · software interno · research · marketing · ventas · documentación · QA</p>
+          <div className="proof-strip" aria-label="Puntos clave">
+            {heroProofPoints.map((item) => <span key={item}>{item}</span>)}
+          </div>
         </div>
-
-        <aside className="tower-console" aria-label="Panel operativo Black Tower Consulting">
-          <div className="console-header">
-            <span>BTC // MULTIAGENT STUDIO</span>
-            <strong>ACTIVE SYSTEM</strong>
-          </div>
-          <div className="tower-sigil" aria-hidden="true">
-            <span />
-            <strong>BT</strong>
-          </div>
-          <div className="console-grid">
-            <div>
-              <span>Profiles</span>
-              <strong>{agents.length}</strong>
-            </div>
-            <div>
-              <span>Knowledge</span>
-              <strong>Etharlia</strong>
-            </div>
-            <div>
-              <span>Bus</span>
-              <strong>Telegram</strong>
-            </div>
-            <div>
-              <span>QA</span>
-              <strong>Columbo</strong>
-            </div>
-          </div>
-          <div className="console-review">
-            <span>UI REVIEW</span>
-            <p>Valentine ordena experiencia, Kvothe afina mensaje y Columbo revisa claridad visual antes de publicar.</p>
-          </div>
-          <div className="console-line"><span>ENGAGEMENT</span><p>Brief → dirección → ejecución especializada → QA → entrega.</p></div>
-          <div className="console-line console-line--ok"><span>STANDARD</span><p>Alcance claro, herramientas reales y revisión crítica antes de presentar resultados.</p></div>
-        </aside>
+        <BlueprintConsole />
       </section>
 
-      <section className="manifest-section" aria-labelledby="manifest-title">
+      <section id="problema" className="problem-section" aria-labelledby="problem-title">
+        <div className="section-heading">
+          <SectionLabel>El riesgo real</SectionLabel>
+          <h2 id="problem-title">La mayoría de los MVPs fallan antes de llegar al mercado.</h2>
+          <p>No porque la idea sea mala, sino porque se construye demasiado, demasiado lento o sin una hipótesis clara que validar.</p>
+        </div>
+        <div className="problem-layout">
+          <div className="signal-list">
+            {problemSignals.map((signal) => <p key={signal}>{signal}</p>)}
+          </div>
+          <div className="comparison-card" aria-label="Comparativa MVP tradicional frente a Black Tower">
+            <div className="comparison-head"><span>MVP tradicional</span><span>MVP Black Tower</span></div>
+            {comparisonRows.map((row) => (
+              <div className="comparison-row" key={row.label}>
+                <strong>{row.label}</strong>
+                <p>{row.traditional}</p>
+                <p>{row.blackTower}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="value-section" aria-labelledby="value-title">
         <div>
-          <SectionLabel>Posicionamiento</SectionLabel>
-          <h2 id="manifest-title">Un showroom operativo que también sirve para vender capacidad real.</h2>
+          <SectionLabel>Producto mínimo valioso</SectionLabel>
+          <h2 id="value-title">Construimos MVPs útiles, no prototipos decorativos.</h2>
         </div>
         <div className="copy-block">
           <p>
-            La propuesta es presentar una forma de trabajar real: cada perfil tiene responsabilidad,
-            lenguaje de salida y herramientas para producir algo útil.
+            Un MVP no es una versión pobre del producto final. Es la forma más rápida de demostrar
+            que una idea puede generar adopción, ingresos o aprendizaje accionable.
           </p>
           <p>
-            El resultado es una vitrina creíble de lo que Black Tower puede activar: automatización,
-            software interno, investigación, documentación, narrativa comercial, revisión crítica y acompañamiento.
+            Combinamos estrategia de negocio, UX/UI y desarrollo full-stack para entregar una primera
+            versión que pueda ser usada, medida y evolucionada sin rehacerlo todo desde cero.
           </p>
         </div>
       </section>
 
-      <section id="perfiles" className="agents-section" aria-labelledby="agents-title">
+      <section className="audience-section" aria-labelledby="audience-title">
         <div className="section-heading">
-          <SectionLabel>Equipo disponible</SectionLabel>
-          <h2 id="agents-title">Cada perfil tiene logo, rol, criterio de salida y responsabilidad clara.</h2>
-          <p>
-            Los nombres funcionan como identificadores operativos. Lo importante es que cada perfil reduce
-            ambigüedad, separa responsabilidades y deja un entregable que puede revisarse.
-          </p>
+          <SectionLabel>Para quién</SectionLabel>
+          <h2 id="audience-title">Equipos que necesitan pasar de idea a mercado.</h2>
         </div>
-        <div className="agent-grid">
-          {agents.map((agent) => (
-            <article className="agent-card" key={agent.profile} style={{ '--agent-accent': agent.accent } as CSSProperties}>
-              <div className="agent-card__top">
-                <div className="agent-logo" role="img" aria-label={`Logo de ${agent.name}`}>
-                  <AgentIcon kind={agent.icon} />
-                  <span className="agent-logo__code">{agent.logo}</span>
-                </div>
-                <div>
-                  <h3>{agent.name}</h3>
-                  <p>{agent.role}</p>
-                </div>
-              </div>
-              <p className="agent-profile"><code>{agent.profile}</code> · {agent.reference}</p>
-              <p className="agent-summary">{agent.summary}</p>
-              <ul className="agent-does">
-                {agent.does.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-              <div className="agent-output">
-                <span>Output estándar</span>
-                <p>{agent.output}</p>
-              </div>
+        <div className="audience-grid">
+          {audiences.map((audience) => (
+            <article className="audience-card" key={audience.title}>
+              <h3>{audience.title}</h3>
+              <p>{audience.detail}</p>
+              <ul>{audience.outcomes.map((item) => <li key={item}>{item}</li>)}</ul>
             </article>
           ))}
         </div>
       </section>
 
-      <section id="entorno" className="capabilities-section" aria-labelledby="capabilities-title">
+      <section className="formats-section" aria-labelledby="formats-title">
         <div className="section-heading section-heading--dark">
-          <SectionLabel>Sistema de trabajo</SectionLabel>
-          <h2 id="capabilities-title">Perfiles, memoria y herramientas conectadas para ejecutar de punta a punta.</h2>
-          <p>
-            Black Tower opera como una capa de coordinación sobre Hermes: dirección decide, perfiles producen,
-            Etharlia conserva contexto y Columbo bloquea entregables flojos antes de que salgan.
-          </p>
+          <SectionLabel>Qué construimos</SectionLabel>
+          <h2 id="formats-title">MVPs diseñados para validar una hipótesis concreta.</h2>
+          <p>No empezamos por la tecnología. Empezamos por la pregunta que el MVP debe responder.</p>
         </div>
-        <div className="pillar-grid">
-          {capabilityPillars.map((pillar) => (
-            <article className="pillar-card" key={pillar.title}>
-              <span>{pillar.eyebrow}</span>
-              <h3>{pillar.title}</h3>
-              <p>{pillar.detail}</p>
-              <div className="tool-list">
-                {pillar.tools.map((tool) => <code key={tool}>{tool}</code>)}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="servicios" className="showcase-section" aria-labelledby="showcase-title">
-        <div className="section-heading">
-          <SectionLabel>Servicios activables</SectionLabel>
-          <h2 id="showcase-title">Capacidades que se pueden enseñar, combinar y convertir en encargos.</h2>
-        </div>
-        <div className="showcase-grid">
-          {showcasedCapabilities.map((item, index) => (
-            <article className="showcase-card" key={item}>
+        <div className="format-grid">
+          {mvpFormats.map((item, index) => (
+            <article className="format-card" key={item}>
               <span>{String(index + 1).padStart(2, '0')}</span>
               <p>{item}</p>
             </article>
@@ -309,15 +192,49 @@ export function App() {
         </div>
       </section>
 
-      <section id="flujo" className="flow-section grid-bg" aria-labelledby="flow-title">
-        <div className="section-heading section-heading--dark">
-          <SectionLabel>Cómo entra el trabajo</SectionLabel>
-          <h2 id="flow-title">Un flujo simple para pasar de conversación a entrega verificable.</h2>
+      <section id="proceso" className="process-section" aria-labelledby="process-title">
+        <div className="section-heading">
+          <SectionLabel>Proceso MVP</SectionLabel>
+          <h2 id="process-title">Un proceso claro para lanzar sin perder foco.</h2>
         </div>
-        <div className="flow-timeline">
-          {operatingFlow.map((item) => (
-            <article className="flow-item" key={item.step}>
-              <span>{item.step}</span>
+        <div className="process-timeline">
+          {processSteps.map((item) => (
+            <article className="process-card" key={item.step}>
+              <div className="process-card__meta"><span>{item.step}</span><strong>{item.duration}</strong></div>
+              <h3>{item.title}</h3>
+              <p>{item.detail}</p>
+              <ul>{item.deliverables.map((deliverable) => <li key={deliverable}>{deliverable}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="paquetes" className="packages-section" aria-labelledby="packages-title">
+        <div className="section-heading section-heading--dark">
+          <SectionLabel>Formas de avanzar</SectionLabel>
+          <h2 id="packages-title">Tres entradas según tu etapa.</h2>
+        </div>
+        <div className="package-grid">
+          {packages.map((pack) => (
+            <article className={pack.featured ? 'package-card package-card--featured' : 'package-card'} key={pack.name}>
+              <span>{pack.timing}</span>
+              <h3>{pack.name}</h3>
+              <p>{pack.description}</p>
+              <ul>{pack.includes.map((item) => <li key={item}>{item}</li>)}</ul>
+              <a href={contactHref}>{pack.cta}</a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="difference-section" aria-labelledby="difference-title">
+        <div className="section-heading">
+          <SectionLabel>Diferenciadores</SectionLabel>
+          <h2 id="difference-title">La diferencia está en construir solo lo que valida.</h2>
+        </div>
+        <div className="difference-grid">
+          {differentiators.map((item) => (
+            <article className="difference-card" key={item.title}>
               <h3>{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -325,33 +242,55 @@ export function App() {
         </div>
       </section>
 
-      <section id="garantias" className="limits-section" aria-labelledby="limits-title">
-        <div className="section-heading section-heading--narrow">
-          <SectionLabel>Garantías y límites</SectionLabel>
-          <h2 id="limits-title">Vendible no significa inflado: cada entrega sale con alcance y QA.</h2>
+      <section id="incluye" className="include-section" aria-labelledby="include-title">
+        <div className="include-panel">
+          <div>
+            <SectionLabel>Entregables</SectionLabel>
+            <h2 id="include-title">Todo lo necesario para lanzar una primera versión útil.</h2>
+            <p>También definimos explícitamente qué queda fuera del MVP para proteger tiempo, presupuesto y foco.</p>
+          </div>
+          <ul className="include-list">{includedItems.map((item) => <li key={item}>{item}</li>)}</ul>
         </div>
-        <div className="limits-grid">
-          {explicitLimits.map((item) => (
-            <article className="limit-card" key={item}>
-              <span aria-hidden="true">✓</span>
-              <p>{item}</p>
+      </section>
+
+      <section className="metrics-section" aria-labelledby="metrics-title">
+        <div className="section-heading section-heading--dark">
+          <SectionLabel>Cómo medimos éxito</SectionLabel>
+          <h2 id="metrics-title">Un MVP exitoso responde una pregunta de negocio.</h2>
+        </div>
+        <div className="metric-board">
+          <div className="metric-board__hero"><small>Time to launch</small><strong>28 días</strong><span>Referencia ilustrativa para un MVP acotado</span></div>
+          {successMetrics.map((metric) => <p key={metric}>{metric}</p>)}
+        </div>
+      </section>
+
+      <section className="faq-section" aria-labelledby="faq-title">
+        <div className="section-heading">
+          <SectionLabel>FAQ</SectionLabel>
+          <h2 id="faq-title">Preguntas frecuentes.</h2>
+        </div>
+        <div className="faq-grid">
+          {faqs.map((faq) => (
+            <article className="faq-card" key={faq.question}>
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="cta-section grid-bg" aria-labelledby="cta-title">
+      <section id="contacto" className="cta-section" aria-labelledby="cta-title">
         <SectionLabel>Próximo paso</SectionLabel>
-        <h2 id="cta-title">Elige un proceso, una idea o un entregable. Lo convertimos en un plan accionable.</h2>
-        <p>
-          La mejor forma de valorar el sistema es activarlo sobre un caso concreto: automatización interna,
-          research, revisión de una web, mejora de una propuesta o construcción de una herramienta pequeña.
-        </p>
-        <AnchorButton href={contactHref}>Abrir conversación</AnchorButton>
+        <h2 id="cta-title">Convierte tu idea en un MVP listo para validar.</h2>
+        <p>En 30 minutos identificamos el alcance inicial, riesgos principales y próximos pasos para lanzar sin construir de más.</p>
+        <div className="hero__actions">
+          <AnchorButton href={contactHref} variant="dark">Agendar diagnóstico MVP</AnchorButton>
+          <AnchorButton href={contactHref} variant="secondary">Enviar brief del proyecto</AnchorButton>
+        </div>
       </section>
 
       <footer className="footer">
-        <p>Black Tower Consulting · Equipo multiagente para automatización IA, software interno, research y entregables operativos.</p>
+        <p>Black Tower Consulting · MVPs premium para validar, vender y decidir con evidencia.</p>
         <a href={contactHref}>hola@etharlia.com</a>
       </footer>
     </main>
